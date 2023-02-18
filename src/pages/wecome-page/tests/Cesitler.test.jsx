@@ -42,7 +42,7 @@ test('Dondurma çeşitlerinde ekleme ve sıfırlama işlemi', async () => {
 
   expect(toplamH1).toHaveTextContent('9');
 
-  //Sıfırlama işlemi
+  //Sıfırlama işlemii
   await user.click(delBtns[1]);
   expect(toplamH1).toHaveTextContent('3');
 });

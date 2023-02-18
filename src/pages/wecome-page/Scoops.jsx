@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import Card from './../../components/Card';
 
 const Scoops = () => {
   const [cesitler, setCesitler] = useState([]);
@@ -30,42 +31,22 @@ const Scoops = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1 className="text-start">Dondurma Çeşitleri</h1>
       <p className="text-start">Tanesi 3$</p>
       <h2 className="text-start">Çeşitler Ücreti: {sepet.length * 3} $</h2>
-      <div className="row mt-4 d-flex gap-4 p-3">
+      <div className="row mt-4 d-flex gap-5 p-3 justify-content-between">
         {cesitler.map((cesit) => {
           const adet = findAmount(cesit);
           return (
-            <div
-              className="col-3 d-flex flex-column align-items-center"
-              style={{ width: '150px' }}
-            >
-              <img
-                id={cesit.name}
-                className="w-100"
-                src={cesit.imagePath}
-                alt="cesit"
-              />
-              <label className="lead">{cesit.name}</label>
-
-              <div className="d-flex gap-2 mt-2 align-items-center">
-                <button
-                  className="btn btn-danger"
-                  onClick={() => handleReset(cesit)}
-                >
-                  Sıfırla
-                </button>
-                <span className="lead">{adet}</span>
-                <button
-                  className="btn btn-warning"
-                  onClick={() => setSepet([...sepet, cesit])}
-                >
-                  Ekle
-                </button>
-              </div>
-            </div>
+            <Card
+              cesit={cesit}
+              findAmount={findAmount}
+              handleReset={handleReset}
+              adet={adet}
+              sepet={sepet}
+              setSepet={setSepet}
+            />
           );
         })}
       </div>

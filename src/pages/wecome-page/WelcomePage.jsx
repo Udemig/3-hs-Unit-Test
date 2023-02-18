@@ -1,19 +1,20 @@
-import React from 'react'
+import React from 'react';
 import Form from './../form/Form';
 import Scoops from './Scoops';
+import Toppings from './Toppings';
 
 const WelcomePage = () => {
   return (
     <div>
-        {/* ÇEŞİTLER */}
-        <Scoops />
+      {/* ÇEŞİTLER */}
+      <Scoops />
 
-        {/* SOSLAR */}
-
-        {/* FORM */}
-        <Form />
+      {/* SOSLAR */}
+      <Toppings />
+      {/* FORM */}
+      <Form />
     </div>
-  )
-}
+  );
+};
 
-export default WelcomePage
+export default WelcomePage;
